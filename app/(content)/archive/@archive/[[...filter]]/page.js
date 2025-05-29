@@ -22,8 +22,7 @@ async function FilterHeader({ year, month }) {
 
   if (
     (year && !availableYears.includes(year)) ||
-    (month &&
-      !getAvailableNewsMonths(year).includes(month))
+    (month && !getAvailableNewsMonths(year).includes(month))
   ) {
     throw new Error("Invalid filter.");
   }
@@ -33,9 +32,7 @@ async function FilterHeader({ year, month }) {
       <nav>
         <ul>
           {links.map((link) => {
-            const href = year
-              ? `/archive/${year}/${link}`
-              : `/archive/${link}`;
+            const href = year ? `/archive/${year}/${link}` : `/archive/${link}`;
             return (
               <li key={link}>
                 <Link href={href}>{link}</Link>
@@ -67,8 +64,6 @@ export default async function FilteredNewsPage({ params }) {
   const filter = params.filter;
   const selectedYear = filter?.[0];
   const selectedMonth = filter?.[1];
-
-  
 
   return (
     <>
